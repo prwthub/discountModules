@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "daf12d9b-672f-4fae-8aaf-d0bc974b1ace",
+		"name": "Discount Modules",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30166086"
+	},
+	"item": [
+		{
+			"name": "item",
+			"item": [
+				{
+					"name": "get item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/item",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"นม\",\r\n    \"category\": \"อาหาร\",\r\n    \"price\": 20,\r\n    \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/item",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"6de3ac9e-5131-4bc8-a023-86340dc3d23f\",\r\n    \"name\": \"ทีวี\",\r\n    \"category\": \"เครื่องใช้ไฟฟ้า\",\r\n    \"price\": 5000.0,\r\n    \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/item/6de3ac9e-5131-4bc8-a023-86340dc3d23f",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"item",
+								"6de3ac9e-5131-4bc8-a023-86340dc3d23f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/item/6de3ac9e-5131-4bc8-a023-86340dc3d23f",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"item",
+								"6de3ac9e-5131-4bc8-a023-86340dc3d23f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "discount",
+			"item": [
+				{
+					"name": "get discount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/discount",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"discount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create discount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // fixed amount\r\n    \"name\": \"ทดอสบ 1\",\r\n    \"description\": \"desc\",\r\n    \"type\": \"fixedAmount\",\r\n    \"discountAmount\": 200\r\n\r\n    // percentage\r\n    // \"name\": \"ทดอสบ 2\",\r\n    // \"description\": \"desc\",\r\n    // \"type\": \"percentage\",\r\n    // \"discountPercentage\": 20.0\r\n\r\n    // Category Percentage\r\n    // \"name\": \"ทดอสบ 3\",\r\n    // \"description\": \"desc\",\r\n    // \"type\": \"category\",\r\n    // \"category\": \"อาหาร\",\r\n    // \"discountPercentage\": 20.0\r\n\r\n    // point\r\n    // \"name\": \"ทดอสบ 4\",\r\n    // \"description\": \"desc\",\r\n    // \"type\": \"points\",\r\n    // \"discountPercentage\": 20.0\r\n\r\n    // campaign\r\n    // \"name\": \"ทดอสบ 5\",\r\n    // \"description\": \"desc\",\r\n    // \"type\": \"campaign\",\r\n    // \"minProductCount\": 2000.0,\r\n    // \"discountAmount\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/discount",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"discount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update discount",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"71396fdb-b645-4a17-ace4-a093c3f5ff1c\",\r\n    \"name\": \"ทดอสบ 1\",\r\n    \"description\": \"desc\",\r\n    \"type\": \"fixedAmount\",\r\n    \"discountAmount\": 20000.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/discount/71396fdb-b645-4a17-ace4-a093c3f5ff1c",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"discount",
+								"71396fdb-b645-4a17-ace4-a093c3f5ff1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete discount",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/discount/71396fdb-b645-4a17-ace4-a093c3f5ff1c",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"discount",
+								"71396fdb-b645-4a17-ace4-a093c3f5ff1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apply discount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"point\": 5000,\r\n    \"items\": [\r\n        {\r\n            \"id\": \"72e1ec79-d10d-4568-ba58-82311d65c511\",\r\n            \"name\": \"เสื้อ\",\r\n            \"category\": \"เสื้อผ้า\",\r\n            \"price\": 100.0,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": \"c7a2f6a0-ed20-4edb-9f7b-2e0ba0293fc3\",\r\n            \"name\": \"กางเกง\",\r\n            \"category\": \"เสื้อผ้า\",\r\n            \"price\": 200.0,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": \"3858b8fa-7d5e-4330-a0da-15b5923a2001\",\r\n            \"name\": \"รองเท้า\",\r\n            \"category\": \"เสื้อผ้า\",\r\n            \"price\": 300.0,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": \"28aab38f-78b8-4bff-a691-567926e71885\",\r\n            \"name\": \"ตู้เย็น\",\r\n            \"category\": \"เครื่องใช้ไฟฟ้า\",\r\n            \"price\": 3500.0,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": \"2485406d-3b87-48d4-b217-6dc58fdfb0cc\",\r\n            \"name\": \"ทีวี\",\r\n            \"category\": \"เครื่องใช้ไฟฟ้า\",\r\n            \"price\": 5000.0,\r\n            \"quantity\": 1\r\n        }\r\n    ],\r\n    \"discount\": [\r\n        {\r\n            \"id\": \"1338eea3-c812-42d2-b628-a970ca1f681b\",\r\n            \"name\": \"Percentage Discount\",\r\n            \"description\": \"ลดราคา 20%\",\r\n            \"type\": \"percentage\",\r\n            \"discountPercentage\": 20.0\r\n        },\r\n        {\r\n            \"id\": \"2a98917b-cf90-438c-b66e-34d63d947397\",\r\n            \"name\": \"Fixed Amount Discount\",\r\n            \"description\": \"ลดราคา 50 บาท\",\r\n            \"type\": \"fixedAmount\",\r\n            \"discountAmount\": 50.0\r\n        },\r\n        {\r\n            \"id\": \"79f9a11c-f7a4-4a18-ada4-e3c6d5e67127\",\r\n            \"name\": \"Points Discount\",\r\n            \"description\": \"ลด 1 บาทต่อ 1 แต้ม สูงสุด 20%\",\r\n            \"type\": \"points\",\r\n            \"discountPercentage\": 20.0\r\n        },\r\n        {\r\n            \"id\": \"a4bd243c-5fb1-402b-945f-37e75ca12d87\",\r\n            \"name\": \"Category Discount\",\r\n            \"description\": \"ลดราคาสำหรับหมวด เสื้อผ้า 15%\",\r\n            \"type\": \"category\",\r\n            \"category\": \"เสื้อผ้า\",\r\n            \"discountPercentage\": 15.0\r\n        },\r\n        {\r\n            \"id\": \"bd08cd78-acca-4787-8a05-36fb5d759045\",\r\n            \"name\": \"Campaign Discount\",\r\n            \"description\": \"ลดราคาเมื่อซื้อครบทุก 500 บาท รับส่วนลด 100 บาท\",\r\n            \"type\": \"campaign\",\r\n            \"minProductCount\": 500,\r\n            \"discountAmount\": 100.0\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/discount/apply",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"discount",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
