@@ -29,17 +29,31 @@ public class DiscountServiceImpl implements DiscountService {
     private static List<Discount> discounts = new ArrayList<>();
 
     static {
-        // ! Fixed Amount Discount
-        discounts.add(new FixedAmountDiscount(
-                UUID.randomUUID().toString(),
-                "Fixed Amount Discount",
-                "ลดราคา 50 บาท",
-                50.0));
+        // // ! Fixed Amount Discount
+        // discounts.add(new FixedAmountDiscount(
+        // UUID.randomUUID().toString(),
+        // "Fixed Amount Discount",
+        // "ลดราคา 50 บาท",
+        // 50.0));
 
         // ! Percentage Discount
         discounts.add(new PercentageDiscount(
                 UUID.randomUUID().toString(),
-                "Percentage Discount",
+                "Percentage Discount1",
+                "ลดราคา 20%",
+                20.0));
+
+        // ! Percentage Discount
+        discounts.add(new PercentageDiscount(
+                UUID.randomUUID().toString(),
+                "Percentage Discount2",
+                "ลดราคา 20%",
+                20.0));
+
+        // ! Percentage Discount
+        discounts.add(new PercentageDiscount(
+                UUID.randomUUID().toString(),
+                "Percentage Discount3",
                 "ลดราคา 20%",
                 20.0));
 
@@ -300,21 +314,25 @@ public class DiscountServiceImpl implements DiscountService {
 
         finalPrice = totalPrice;
 
-        List<DiscountCreateRequest> discounts = new ArrayList<>(Collections.nCopies(3, null));
+        List<DiscountCreateRequest> discountsSelected = new ArrayList<>(Collections.nCopies(3, null));
         for (DiscountCreateRequest discountRequest : request.getDiscount()) {
             if ((discountRequest.getType().equals("fixedAmount")
-                    || discountRequest.getType().equals("percentage")) && discounts.get(0) == null) {
-                discounts.set(0, discountRequest);
+                    || discountRequest.getType().equals("percentage")) && discountsSelected.get(0) == null) {
+                discountsSelected.set(0, discountRequest);
             } else if ((discountRequest.getType().equals("category")
-                    || discountRequest.getType().equals("points")) && discounts.get(1) == null) {
-                discounts.set(1, discountRequest);
-            } else if (discountRequest.getType().equals("campaign") && discounts.get(2) == null) {
-                discounts.set(2, discountRequest);
+                    || discountRequest.getType().equals("points")) && discountsSelected.get(1) == null) {
+                discountsSelected.set(1, discountRequest);
+            } else if (discountRequest.getType().equals("campaign") && discountsSelected.get(2) == null) {
+                discountsSelected.set(2, discountRequest);
             }
         }
 
         // ประมวลผลส่วนลด
-        for (DiscountCreateRequest discountRequest : discounts) {
+        for (DiscountCreateRequest discountRequest : discountsSelected) {
+            if (discountRequest == null) {
+                continue;
+            }
+
             if (discountRequest.getType().equals("fixedAmount")) {
                 // ใช้ส่วนลดแบบ Fixed Amount
                 discountAmount += discountRequest.getDiscountAmount();

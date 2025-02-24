@@ -1,6 +1,7 @@
 package com.example.discountModules.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.discountModules.dto.request.ApplyDiscountRequest;
 import com.example.discountModules.dto.request.DiscountCreateRequest;
 import com.example.discountModules.dto.request.DiscountUpdateRequest;
+import com.example.discountModules.dto.response.BaseResponse;
 import com.example.discountModules.service.DiscountService;
 
 import jakarta.validation.Valid;
@@ -32,7 +34,14 @@ public class DiscountController {
 
     @PostMapping("")
     public ResponseEntity<?> createDiscount(@Valid @RequestBody DiscountCreateRequest request) {
-        return ResponseEntity.ok(discountService.createDiscount(request));
+        // return ResponseEntity.ok(discountService.createDiscount(request));
+        BaseResponse response = discountService.createDiscount(request);
+
+        if (response.getCode().equals("400")) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        } else {
+            return ResponseEntity.ok().body(response);
+        }
     }
 
     @PutMapping("/{id}")
